@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class koogle {
+public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -22,16 +22,15 @@ public class koogle {
 	    	for ( int j=0; j< numberOfCode; j++){ 
 	    		
 	    		int num1 = 0;
-	    		int num2 = 0;
+	    		int num2;
 	    		//강도 구하기
 	    		String cur_code = sc.next();		
 	    		
 	    		for ( int k=0; k<cur_code.length(); k++ ){
 	    			if ( Character.isLowerCase( cur_code.charAt(k) )){
 	    				num1++;}
-	    			else if ( Character.isDigit(cur_code.charAt(k) )){
-	    				num2++;}
 	    		}
+	    		num2 = cur_code.length()-num1;
 	    		double cur_power = Math.log10( Math.pow(26, num1)*Math.pow(10, num2));	    			    		
 	    		
 	    		//비교 
