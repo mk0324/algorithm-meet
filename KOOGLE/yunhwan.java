@@ -17,7 +17,7 @@ public class koogle {
 			double power =0;
 			String code ="";
 	    	
-			//암호 후보
+		//암호 후보
 	    	int numberOfCode = sc.nextInt();     	
 	    	for ( int j=0; j< numberOfCode; j++){ 
 	    		
@@ -34,7 +34,7 @@ public class koogle {
 	    		}
 	    		double cur_power = Math.log10( Math.pow(26, num1)*Math.pow(10, num2));	    			    		
 	    		
-	    		//기존 강도와 비교 
+	    		//비교 
 	    		if ( power < cur_power ){
 	    			power = cur_power;
 	    			code = cur_code;
