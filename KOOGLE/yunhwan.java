@@ -21,7 +21,7 @@ public class Main {
 	    	for ( int j=0; j< numberOfCode; j++){ 
 	    		
 	    		int num1 = 0;
-	    		int num2;
+	    	
 	    		//강도 구하기
 	    		String cur_code = sc.next();		
 	    		
@@ -29,8 +29,8 @@ public class Main {
 	    			if ( Character.isLowerCase( cur_code.charAt(k) )){
 	    				num1++;}
 	    		}
-	    		num2 = cur_code.length()-num1;
-	    		double cur_power = Math.log10( Math.pow(26, num1)*Math.pow(10, num2));	    			    		
+	    		
+	    		double cur_power = Math.log10( Math.pow(26, num1)*Math.pow(10, cur_code.length()-num1));	    			    		
 	    		
 	    		//비교 
 	    		if ( power < cur_power ){
