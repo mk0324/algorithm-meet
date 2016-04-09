@@ -24,14 +24,15 @@ public class Main {
 	    	
 	    		//강도 구하기
 	    		String cur_code = sc.next();		
+	    		double cur_power = 0;
 	    		
 	    		for ( int k=0; k<cur_code.length(); k++ ){
-	    			if ( Character.isLowerCase( cur_code.charAt(k) )){
-	    				num1++;}
+	    			if ( Character.isLowerCase( cur_code.charAt(k) ))
+	    			{
+	    				cur_power += Math.log10(26);
+	    			}
+	    			else { cur_power += 1; }
 	    		}
-	    		
-	    		double cur_power = Math.log10( Math.pow(26, num1)*Math.pow(10, cur_code.length()-num1));	    			    		
-	    		
 	    		//비교 
 	    		if ( power < cur_power ){
 	    			power = cur_power;
