@@ -13,11 +13,10 @@ for i in inputList:
 			newNumbers.append(j-i)
 		if j+i <= maximum:
 			newNumbers.append(j+i)
-	recentNumbers = list(newNumbers)
+	recentNumbers = set(newNumbers)
 	if not recentNumbers:
 		print("-1")
 		break
 
 if recentNumbers:
 	print(max(recentNumbers))
-
