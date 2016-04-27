@@ -25,9 +25,8 @@ public class Main {
 			int cur = 0;
 			for(int j=0; j<n; j++)
 			{
-				if(cur>stock[n-1-j]){
+				if(cur>stock[n-1-j])
 					profit += cur-stock[n-1-j];
-				}
 				else { cur = stock[n-1-j]; }
 			}
 			System.out.println(profit);
