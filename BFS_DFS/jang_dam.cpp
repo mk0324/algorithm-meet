@@ -20,10 +20,10 @@ int checkAndPush(int x, int y,int water) //push되면 1 반환, 안되면 0반환
 {
 	if (x >= 0 && x < T && y >= 0 && y < T)
 	{
-		if (mat[x][y] != 1 && mat[x][y] != 3)	//방문이 안되었고 벽이 아니라면 push
+		if (mat[y][x] == 0)	//방문한 곳이 아니고 길 이면 push
 		{
 			q.push(Point(x, y,water));
-			mat[x][y] = 3;
+			mat[y][x] = water;
 			return 1;
 		}
 	}
@@ -39,10 +39,10 @@ int dam(int x, int y, int k)
 	{
 		Point p = q.front();
 		q.pop();
-
 		if (p.water > k-1)
 			break;
-		mat[p.x][p.y] = 3;	//방문한 곳을 check
+
+		mat[p.y][p.x] = 3;	//방문한 곳을 check
 
 		int cnt = 0;
 
@@ -82,6 +82,12 @@ int main()
 
 	cout<<dam(x, y, K)<<endl;
 
+	for (int i = 0; i < T; i++)
+	{
+		for (int j = 0; j < T; j++)
+			cout << mat[i][j] << " ";
+		cout << endl;
+	}
 	for (int i = 0; i < T; i++)
 		delete[] mat[i];
 
