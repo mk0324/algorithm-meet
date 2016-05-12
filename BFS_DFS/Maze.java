@@ -2,7 +2,7 @@ package algo_meet;
 
 import java.util.Scanner;
 
-public class Maze {
+public class Maze2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -12,7 +12,7 @@ public class Maze {
 		int node = sc.nextInt();
 		int edge = sc.nextInt();
 		
-		int visited[] = new int[node];
+		int visited[] = new int[node];		
 		int matrix[][] = new int[node][node];
 		
 		for (int i=0; i<edge; i++ )
@@ -25,8 +25,9 @@ public class Maze {
 		}
 		
 		//searching
-		int pre_node = 0;
+		
 		int cur_node = 1;
+		Integer pre_node[] = new Integer[node]; 
 		while(true)
 		{			
 			for (int j=0; j<node; j++ )
@@ -34,13 +35,17 @@ public class Maze {
 				visited[cur_node-1]=1; //mark room visited
 				if ( matrix[cur_node-1][j] != 1 || visited[j]==1) continue; //no edge or visited
 				else if ( j == node-1 ) {
-					cur_node = pre_node;
+					cur_node = pre_node[cur_node-1];
 					break;
 				}
-				else {
+				else {		
 					System.out.print(cur_node+" ");
-					pre_node = cur_node;
+					int tmp = cur_node;					
 					cur_node = j+1;
+					if(pre_node[cur_node-1]!=null){
+						pre_node[cur_node-1] = tmp;							
+					}
+									
 					break;
 				}
 			}			
