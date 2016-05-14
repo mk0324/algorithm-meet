@@ -42,7 +42,7 @@ public class Maze2 {
 					System.out.print(cur_node+" ");
 					int tmp = cur_node;					
 					cur_node = j+1;
-					if(pre_node[cur_node-1]!=null){
+					if(pre_node[cur_node-1]==null){
 						pre_node[cur_node-1] = tmp;							
 					}
 									
