@@ -35,6 +35,7 @@ public class Maze2 {
 				visited[cur_node-1]=1; //mark room visited
 				if ( matrix[cur_node-1][j] != 1 || visited[j]==1) continue; //no edge or visited
 				else if ( j == node-1 ) {
+					System.out.print(cur_node+" ");
 					cur_node = pre_node[cur_node-1];
 					break;
 				}
