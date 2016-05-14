@@ -1,3 +1,3 @@
-ACMICPC region 2015 대전
-주식 문제: https://www.acmicpc.net/problem/11501
+# ACMICPC region 2015 대전 지역
 
+주식: https://www.acmicpc.net/problem/11501
