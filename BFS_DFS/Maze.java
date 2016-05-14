@@ -48,7 +48,8 @@ public class Maze2 {
 									
 					break;
 				}
-			}			
+			}
+			// if every node visited, end
 		}
 	}
 }
