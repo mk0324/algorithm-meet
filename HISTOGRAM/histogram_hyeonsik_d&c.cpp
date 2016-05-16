@@ -5,16 +5,16 @@ int n, height[100000];
 
 
 int histogram(int left, int right){
-	//±âÀú»ç·Ê : ÇÑÄ­¸¸ ³²¾ÒÀ» °æ¿ì. 
+	//ê¸°ì €ì‚¬ë¡€ : í•œì¹¸ë§Œ ë‚¨ì•˜ì„ ê²½ìš°. 
 	if(left == right) return height[left];
 	int mid = (left+right)/2, ret;
-	//mid¸¦ Á¦¿ÜÇÑ ÁÂ,¿ìÀÇ histogram ÃÖ´ë°ªÀ» ±¸ÇÑ´Ù. 
+	//ì¢Œ,ìš°ì˜ histogram ìµœëŒ€ê°’ì„ êµ¬í•œë‹¤. 
 	ret =  max(histogram(left,mid),histogram(mid+1,right));
-	//mid¸¦ Áß°£¿¡ °ÉÄ£ histogramÀ» ±¸ÇÑ´Ù. 
+	//midë¥¼ ì¤‘ê°„ì— ê±¸ì¹œ histogramì„ êµ¬í•œë‹¤. 
 	int rr = mid+1, ll = mid, curHeight=min(height[rr],height[ll]);
 	ret = max(ret, curHeight*2);
 	
-	//height°¡ Å« ÂÊÀ¸·Î ÇÏ³ª¾¿ ÁÂ¿ì¸¦ È®ÀåÇØ°¡¸ç ºñ±³ÇÑ´Ù. 
+	//heightê°€ í° ìª½ìœ¼ë¡œ í•˜ë‚˜ì”© ì¢Œìš°ë¥¼ í™•ìž¥í•´ê°€ë©° ë¹„êµí•œë‹¤. 
 	while(ll>left || rr<right){ 
 		if(rr<right && (ll == left ||height[rr+1]>height[ll-1])){
 			rr++;	
