@@ -78,7 +78,7 @@ double getProb(int curAct, unsigned int curDish) {
             }
             else if (act[curAct] == 'R') {
                 FOR(k,0, 4) FOR(i,0,4) M_FOR(j,2,0) {
-                	//이전 -7~-8비트가 00이면 왼쪽으로 8bit shift 
+                	//이후 1~2비트가 00이면 왼쪽으로 2bit shift 
                     if (!(nextDish &(3 << (W_BIT + 2)))) {
                         nextDish = ((nextDish & (3 << (W_BIT))) << 2) | (nextDish&~(3 << (W_BIT)));
                     }
@@ -87,7 +87,7 @@ double getProb(int curAct, unsigned int curDish) {
             }
             else if (act[curAct] == 'T') {
                 FOR(k,0, 4) D_FOR(1,4,0,4) {
-                	//이후 1~2비트가 00이면 왼쪽으로 2bit shift  
+                	//이전 -7~-8비트가 00이면 오른쪽으로 8bit shift
                     if (!(nextDish &(3 << (W_BIT - 8)))) {
                         nextDish = ((nextDish & (3 << (W_BIT))) >> 8) | (nextDish&~(3 << (W_BIT)));
                     }
@@ -97,7 +97,7 @@ double getProb(int curAct, unsigned int curDish) {
               
             else if (act[curAct] == 'B') {
                 FOR(k,0, 4) M_FOR(i,2,0) FOR(j,0,4){
-                	//이전 -7~-8비트가 00이면 왼쪽으로 8bit shift 
+                	//이후 7~8비트가 00이면 왼쪽으로 8bit shift 
                     if (!(nextDish &(3 << (W_BIT + 8)))) {
                         nextDish = ((nextDish & (3 << (W_BIT))) << 8) | (nextDish&~(3 << (W_BIT)));
                     }
