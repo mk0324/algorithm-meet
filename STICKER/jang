@@ -1,0 +1,38 @@
+#include<iostream>
+#include<algorithm>
+ 
+using namespace std;
+ 
+int sticker[2][100000];
+int cache[2][100000];
+int n;
+ 
+int func(int x, int y)
+{
+    if (cache[y][x] != -1)
+        return cache[y][x];
+ 
+    if (x >= n) //boundary exception
+        return 0;
+ 
+    return cache[y][x] = sticker[y][x] + std::max(func(x + 1, !y), func(x + 2, !y));
+}
+int main()
+{
+    int T;
+    cin >> T;
+     
+    while (T--)
+    {
+        cin >> n;
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < n; j++)
+            {
+                cin >> sticker[i][j];
+                cache[i][j] = -1;
+            }
+ 
+        cout << std::max(func(0, 0), func(0, 1)) << endl;
+    }
+    return 0;
+}
