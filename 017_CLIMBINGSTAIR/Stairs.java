@@ -1,13 +1,5 @@
 package depromeet.algo;
-/*6
-10
-20
-15
-25
-10
-20
-
-75*/
+//윤환 
 
 import java.util.Scanner;
 
