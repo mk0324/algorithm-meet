@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 	for(k=1; k<=n; k++)	scanf("%d",&arr[k]);
 		
 	
-	//2차원 배열 dp
+	//dp array
 	int dp[n+1][n+1]; 	
 	int i; int j;
 	for(i=1; i<=n; i++)
