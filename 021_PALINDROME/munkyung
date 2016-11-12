@@ -1,0 +1,52 @@
+#include <iostream>
+using std::cin;
+using std::cout;
+using std::endl;
+
+int main(void)
+{
+	int numOfN = 0;                   //수열의 크기 변수선언
+	cin >> numOfN;                  
+	int* numArray = new int[numOfN];  //입력받은 값의 크기로 배열을 생성하기 위해 동적할당
+	
+	for (int i = 0; i < numOfN; i++) //수열 입력받음
+		cin >> numArray[i];
+	
+	int numOfQ = 0;
+	cin >> numOfQ;
+
+	int* fIndex = new int[numOfQ];    //질문 S의 인덱스
+	int* eIndex = new int[numOfQ];    //질문 E의 인덱스
+
+	for (int i = 0; i < numOfQ; i++) //S, E질문 입력받음 
+	{
+		cin >> fIndex[i] >> eIndex[i];
+	}
+	
+	for (int i = 0; i < numOfQ; i++)  
+	{
+		int newFIndex = fIndex[i] - 1; 
+		int newEIndex = eIndex[i] - 1;
+		for(int j = 0; ; j++)
+			if (newFIndex == newEIndex)
+			{
+				cout << "1" << endl;
+				break;
+			}
+			else
+			{
+				if (numArray[newFIndex] == numArray[newEIndex])
+				{
+					++newFIndex;
+					--newEIndex;
+				}
+				else
+				{
+					cout << "0" << endl;
+					break;
+				}
+		}
+		
+	}
+
+}
